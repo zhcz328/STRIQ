@@ -94,7 +94,7 @@ class LatentRegistrationAligner(nn.Module):
         aligned_b: List[torch.Tensor] = []
         thetas: List[torch.Tensor] = []
 
-        # Source features initialised as the raw encoder outputs (Sec. 2.2)
+        # Source features initialised as the raw encoder outputs
         src_a = feats_a[0]
         src_b = feats_b[0]
 

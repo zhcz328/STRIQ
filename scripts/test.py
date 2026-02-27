@@ -1,13 +1,3 @@
-"""
-STRIQ Evaluation Script
-
-Usage:
-    python scripts/test.py --config configs/base_config.yaml \
-        --dataset configs/datasets/us4qa_fetal.yaml \
-        --checkpoint output/train/checkpoints/striq_best.pth \
-        --gpu 0
-"""
-
 import argparse
 import json
 import logging

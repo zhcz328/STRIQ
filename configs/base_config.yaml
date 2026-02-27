@@ -37,17 +37,17 @@ training:
   weight_decay: 0.0
   num_folds: 5            # 5-fold cross-validation on D_B
 
-# ---- Loss weights (uniform as stated in Sec. 3.1) -------------------------
+# ---- Loss weights -------------------------
 loss:
   w_sim: 1.0
   w_ncc: 1.0
   w_smooth: 1.0
 
-# ---- Quality Score Inference (Eq.6) ---------------------------------------
+# ---- Quality Score Inference ---------------------------------------
 inference:
   acceptance_threshold: 0.5   # tau
 
-# ---- Data augmentation (Sec. 3.1) ----------------------------------------
+# ---- Data augmentation ----------------------------------------
 augmentation:
   contrast: true
   rotation_range: 20       # degrees ±20

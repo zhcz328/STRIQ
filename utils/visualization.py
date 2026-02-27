@@ -2,9 +2,9 @@
 Visualization Utilities
 
 Provides plotting functions for:
-  - Quality score distributions per plane (Fig. 3)
-  - Score response under progressive deformations (Fig. 4)
-  - OKS subspace embeddings via t-SNE (Suppl. Fig. 6)
+  - Quality score distributions per plane
+  - Score response under progressive deformations
+  - OKS subspace embeddings via t-SNE
   - Training loss curves
 """
 
@@ -56,7 +56,7 @@ def plot_deformation_response(
     plane_name: str = "4CH",
     save_path: str = "./figs/deformation_response.pdf",
 ) -> None:
-    """Bar chart of quality scores under increasing deformation severity (Fig. 4)."""
+    """Bar chart of quality scores under increasing deformation severity."""
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     fig, ax = plt.subplots(figsize=(6, 3))
     x = np.arange(len(severity_levels))
@@ -87,7 +87,7 @@ def plot_tsne_subspaces(
     plane_names: Optional[List[str]] = None,
     save_path: str = "./figs/tsne_subspace.pdf",
 ) -> None:
-    """t-SNE visualisation of OKS subspace embeddings (Suppl. Fig. 6)."""
+    """t-SNE visualisation of OKS subspace embeddings."""
     from sklearn.manifold import TSNE
 
     os.makedirs(os.path.dirname(save_path), exist_ok=True)

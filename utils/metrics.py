@@ -1,14 +1,3 @@
-"""
-Evaluation Metrics — Sec. 3.1
-
-Performance is reported via:
-  - SRCC: Spearman's Rank Correlation Coefficient (Sedgwick 2014)
-  - PLCC: Pearson Linear Correlation Coefficient (Sedgwick 2012)
-
-Both measure the monotonic and linear association between predicted
-quality scores and ground-truth clinical annotations, respectively.
-"""
-
 import numpy as np
 from scipy import stats
 
@@ -17,11 +6,6 @@ def compute_srcc(
     predicted: np.ndarray,
     ground_truth: np.ndarray,
 ) -> float:
-    """Spearman's rank correlation coefficient.
-
-    Measures the monotonic relationship between predicted and
-    ground-truth quality orderings.
-    """
     if len(predicted) < 3:
         return 0.0
     mask = ground_truth >= 0  # exclude missing annotations
@@ -35,11 +19,6 @@ def compute_plcc(
     predicted: np.ndarray,
     ground_truth: np.ndarray,
 ) -> float:
-    """Pearson linear correlation coefficient.
-
-    Measures the linear relationship between predicted scores and
-    ground-truth quality annotations.
-    """
     if len(predicted) < 3:
         return 0.0
     mask = ground_truth >= 0
@@ -56,8 +35,6 @@ def compute_f1_at_threshold(
     gt_threshold: float = 0.5,
 ) -> float:
     """Binary accept/reject F1 score at a given quality threshold.
-
-    Used for tau optimisation (Suppl. Table 4, rightmost column).
     """
     pred_labels = (predicted >= threshold).astype(int)
     gt_labels = (ground_truth >= gt_threshold).astype(int)

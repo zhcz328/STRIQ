@@ -33,5 +33,5 @@ dataset:
       Medium: 0.5
       Poor: 0.0
 
-  # Joint training with US4QA to verify cross-anatomy robustness (Sec. 3.2)
+  # Joint training with US4QA to verify cross-anatomy robustness
   joint_training: true

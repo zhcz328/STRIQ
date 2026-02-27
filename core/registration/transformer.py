@@ -119,9 +119,6 @@ SUPPORTED_MODES: Dict[str, Dict] = {
 
 class AffineTransformer(nn.Module):
     """Construct a 2×3 affine matrix from a raw parameter vector.
-
-    The ``mode`` argument selects which of the eight parameterisations
-    enumerated in Supplementary Table 3 is used.
     """
 
     def __init__(self, mode: str = "affine"):
@@ -138,18 +135,15 @@ class AffineTransformer(nn.Module):
     def forward(self, params: torch.Tensor) -> torch.Tensor:
         """
         Args:
-            params: [B, n_params] raw predictions from localisation network.
+            params: [B, n_params] raw predictions from localization network
         Returns:
-            theta: [B, 2, 3] affine matrix.
+            theta: [B, 2, 3] affine matrix
         """
         return self._builder(params)
 
     @staticmethod
     def grid_sample(features: torch.Tensor, theta: torch.Tensor) -> torch.Tensor:
-        """Apply bilinear grid sampling with the given affine matrix.
-
-        Implements G(f, theta) in Sec. 2.2: bilinear interpolation on
-        the regular grid warped by theta.
+        """ Bilinear grid sampling
         """
         grid = F.affine_grid(
             theta, features.size(), align_corners=False

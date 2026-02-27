@@ -119,7 +119,7 @@ python scripts/test.py \
 ### Table 1: Comparison with State-of-the-Art
 
 ```bash
-bash scripts/experiments/run_us4qa.sh 0    # GPU ID as argument
+bash scripts/experiments/run_us4qa.sh 0    # GPU ID 
 ```
 
 ### Table 2: Ablation Analysis
@@ -130,18 +130,18 @@ bash scripts/experiments/run_ablation.sh 0
 
 ## ⚙️ Key Hyperparameters
 
-| Parameter | Symbol | Default | Reference |
-|-----------|--------|---------|-----------|
-| OKS rank | r | 16 | Table 4 |
-| Orthogonality weight | λ | 0.5 | Sec. 3.1, Table 4 |
-| Activation threshold | φ = τ | 0.1 | Sec. 3.1 |
-| Anchors per plane | k₁ | 20 | Table 4 |
-| Acceptance threshold | τ_QC | 0.5 | Suppl. A.1 |
-| Loss weights | w_sim : w_NCC : w_smooth | 1 : 1 : 1 | Sec. 3.1, Table 4 |
-| Cascaded LRA levels | L | 3 | Sec. 2.2 |
-| Transform mode | — | affine | Suppl. Table 3 |
+| Parameter | Symbol | Default | 
+|-----------|--------|---------|
+| OKS rank | r | 16 | 
+| Orthogonality weight | λ | 0.5 | 
+| Activation threshold | φ = τ | 0.1 | 
+| Anchors per plane | k₁ | 20 | 
+| Acceptance threshold | τ_QC | 0.5 |
+| Loss weights | w_sim : w_NCC : w_smooth | 1 : 1 : 1 | 
+| Cascaded LRA levels | L | 3 | 
+| Transform mode | — | affine |
 
-## 📈 Expected Results
+## 📈 Experimental Results
 
 ### US4QA (SRCC)
 
@@ -161,58 +161,109 @@ bash scripts/experiments/run_ablation.sh 0
 | A4C | 0.367 | 0.312 | 0.538 | 0.541 | 0.701 | **0.779** |
 | **Average** | 0.354 | 0.305 | 0.525 | 0.534 | 0.692 | **0.771** |
 
-## 📂 Project Structure
+[//]: # (## 📂 Project Structure)
 
-```📊 Datasets
-STRIQ/
-├── configs/                     # Configuration files (Sec. 3.1)
-│   ├── datasets/
-│   │   ├── us4qa_fetal.yaml     # US4QA: 4CH, Abdomen, Kidney, Face
-│   │   └── camus_cardiac.yaml   # CAMUS: A2C, A4C
-│   ├── models/
-│   │   ├── striq_resnet18.yaml  # Default model hyperparameters
-│   │   └── ablation_configs.yaml# Ablation variants (Table 2)
-│   └── base_config.yaml         # Global defaults (r=16, λ=0.5, etc.)
-├── core/                        # Core algorithmic modules (Sec. 2)
-│   ├── registration/
-│   │   ├── aligner.py           # LRA cascaded affine alignment (Eq. 1)
-│   │   └── transformer.py       # 8 affine transformation modes (Table 3)
-│   ├── subspace/
-│   │   ├── oks_layer.py         # OKS decomposition & conflict masks (Eq. 4)
-│   │   └── assembly.py          # Synergy Expert assembly (Eq. 5)
-│   └── builder.py               # Full STRIQ network construction
-├── data/
-│   ├── sam_encoder/             # SAMUS-based encoder F_pre for anchors
-│   │   ├── modeling/
-│   │   │   ├── image_encoder.py # ViT-B with position/feature adapters
-│   │   │   └── common.py        # LayerNorm2d, MLPBlock
-│   │   └── build_sam.py         # Encoder loading utility
-│   ├── datasets/
-│   │   ├── us4qa.py             # US4QA fetal dataset & pair generation
-│   │   └── camus.py             # CAMUS cardiac dataset
-│   ├── loader.py                # Augmentation & DataLoader factories
-│   └── anchor_utils.py          # Variance-spectrum anchor selection (Sec. 2.1)
-├── engine/
-│   ├── trainer.py               # Training loop with OKS gradient projection
-│   ├── evaluator.py             # Quality score Q(I_C) inference (Eq. 6)
-│   └── lr_scheduler.py          # Cosine annealing with warm-up
-├── losses/
-│   ├── registration_loss.py     # L_sim (Eq. 2), L_NCC (Eq. 3), L_smooth
-│   └── orthogonality_loss.py    # L_orth — L1 cross-Gram penalty
-├── scripts/
-│   ├── experiments/
-│   │   ├── run_us4qa.sh         # Full US4QA pipeline (Table 1)
-│   │   └── run_ablation.sh      # Ablation experiments (Table 2)
-│   ├── train.py
-│   ├── test.py
-│   └── cache_features.py        # Pre-compute SAMUS embeddings
-├── utils/
-│   ├── metrics.py               # SRCC, PLCC, F1 computation
-│   ├── visualization.py         # Score distributions, t-SNE, deformation plots
-│   └── checkpointer.py          # Checkpoint save/load/resume
-├── main.py                      # Unified CLI entry point
-├── environment.yml
-└── README.md
-```
+[//]: # ()
+[//]: # (```📊 Datasets)
+
+[//]: # (STRIQ/)
+
+[//]: # (├── configs/                     # Configuration files)
+
+[//]: # (│   ├── datasets/)
+
+[//]: # (│   │   ├── us4qa_fetal.yaml     )
+
+[//]: # (│   │   └── camus_cardiac.yaml   )
+
+[//]: # (│   ├── models/)
+
+[//]: # (│   │   ├── striq_resnet18.yaml  # Default model hyperparameters)
+
+[//]: # (│   │   └── ablation_configs.yaml# Ablation variants)
+
+[//]: # (│   └── base_config.yaml         # Global defaults)
+
+[//]: # (├── core/                        # Core algorithmic modules)
+
+[//]: # (│   ├── registration/)
+
+[//]: # (│   │   ├── aligner.py           # LRA cascaded affine alignment)
+
+[//]: # (│   │   └── transformer.py       # 8 affine transformation modes)
+
+[//]: # (│   ├── subspace/)
+
+[//]: # (│   │   ├── oks_layer.py         # OKS decomposition & conflict masks &#40;Eq. 4&#41;)
+
+[//]: # (│   │   └── assembly.py          # Synergy Expert assembly &#40;Eq. 5&#41;)
+
+[//]: # (│   └── builder.py               # Full STRIQ network construction)
+
+[//]: # (├── data/)
+
+[//]: # (│   ├── sam_encoder/             # SAMUS-based encoder F_pre for anchors)
+
+[//]: # (│   │   ├── modeling/)
+
+[//]: # (│   │   │   ├── image_encoder.py # ViT-B with position/feature adapters)
+
+[//]: # (│   │   │   └── common.py        # LayerNorm2d, MLPBlock)
+
+[//]: # (│   │   └── build_sam.py         # Encoder loading utility)
+
+[//]: # (│   ├── datasets/)
+
+[//]: # (│   │   ├── us4qa.py             # US4QA fetal dataset & pair generation)
+
+[//]: # (│   │   └── camus.py             # CAMUS cardiac dataset)
+
+[//]: # (│   ├── loader.py                # Augmentation & DataLoader factories)
+
+[//]: # (│   └── anchor_utils.py          # Variance-spectrum anchor selection)
+
+[//]: # (├── engine/)
+
+[//]: # (│   ├── trainer.py               # Training loop with OKS gradient projection)
+
+[//]: # (│   ├── evaluator.py             # Quality score Q&#40;I_C&#41; inference )
+
+[//]: # (│   └── lr_scheduler.py          # Cosine annealing with warm-up)
+
+[//]: # (├── losses/)
+
+[//]: # (│   ├── registration_loss.py     )
+
+[//]: # (│   └── orthogonality_loss.py   )
+
+[//]: # (├── scripts/)
+
+[//]: # (│   ├── experiments/)
+
+[//]: # (│   │   ├── run_us4qa.sh        )
+
+[//]: # (│   │   └── run_ablation.sh    )
+
+[//]: # (│   ├── train.py)
+
+[//]: # (│   ├── test.py)
+
+[//]: # (│   └── cache_features.py        # Pre-compute SAMUS embeddings)
+
+[//]: # (├── utils/)
+
+[//]: # (│   ├── metrics.py               # SRCC, PLCC, F1 computation)
+
+[//]: # (│   ├── visualization.py         # Score distributions, t-SNE, deformation plots)
+
+[//]: # (│   └── checkpointer.py          # Checkpoint save/load/resume)
+
+[//]: # (├── main.py                      # Unified CLI entry point)
+
+[//]: # (├── environment.yml)
+
+[//]: # (└── README.md)
+
+[//]: # (```)
 
 ### 

@@ -32,7 +32,7 @@ dataset:
     score_range: [0.0, 1.0]
     aggregation: mean
 
-  # Plane-specific structure detection baselines (Table 1)
+  # Plane-specific structure detection baselines
   weighted_score_baselines:
     abdomen: FUIQA
     4ch: ARVBNet

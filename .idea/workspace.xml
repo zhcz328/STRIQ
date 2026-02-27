@@ -6,31 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="6bfeadc8-81bc-4065-baa0-8b77ce9624fe" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/base_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/base_config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/datasets/camus_cardiac.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/datasets/camus_cardiac.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/datasets/us4qa_fetal.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/datasets/us4qa_fetal.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/models/ablation_configs.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/models/ablation_configs.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/models/striq_resnet18.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/models/striq_resnet18.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/registration/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/registration/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/registration/aligner.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/registration/aligner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/registration/transformer.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/registration/transformer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/subspace/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/subspace/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/subspace/assembly.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/subspace/assembly.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/subspace/oks_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/subspace/oks_layer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/anchor_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/anchor_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sam_encoder/build_sam.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/sam_encoder/build_sam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sam_encoder/modeling/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/sam_encoder/modeling/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sam_encoder/modeling/image_encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/sam_encoder/modeling/image_encoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lr_scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lr_scheduler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/losses/orthogonality_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/losses/orthogonality_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/losses/registration_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/losses/registration_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/cache_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/cache_features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/experiments/run_ablation.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/experiments/run_ablation.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/experiments/run_us4qa.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/experiments/run_us4qa.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/checkpointer.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/checkpointer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/metrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +41,12 @@
     &quot;assignee&quot;: &quot;zhcz328&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:zhcz328/STRIQ.git",
-    "accountId": "100e0a0d-2409-48ad-bab2-82ce1d97626e"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:zhcz328/STRIQ.git&quot;,
+    &quot;accountId&quot;: &quot;100e0a0d-2409-48ad-bab2-82ce1d97626e&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -71,29 +59,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/macos/Desktop/miccai2026/code/STRIQ",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/macos/Desktop/miccai2026/code/STRIQ&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -146,7 +134,9 @@
       <option name="presentableId" value="Default" />
       <updated>1772175709011</updated>
       <workItem from="1772175710667" duration="555000" />
-      <workItem from="1772176281234" duration="4456000" />
+      <workItem from="1772176281234" duration="4508000" />
+      <workItem from="1772182456782" duration="13000" />
+      <workItem from="1772199017431" duration="549000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -180,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772178787806</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <option name="closed" value="true" />
+      <created>1772181236303</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1772181236303</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

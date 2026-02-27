@@ -3,7 +3,7 @@
 # ===========================================================================
 
 ablations:
-  # ---- Module ablations (Table 2, left) -----------------------------------
+  # ---- Module ablations -----------------------------------
   - name: wo_oks_module
     description: "Remove entire OKS module (shared backbone conflates planes)"
     oks:
@@ -27,7 +27,7 @@ ablations:
     lra:
       num_levels: 1
 
-  # ---- Loss function ablations (Table 2, right) ---------------------------
+  # ---- Loss function ablations ---------------------------
   - name: loss_all
     loss: { w_sim: 1.0, w_ncc: 1.0, w_smooth: 1.0 }
     oks: { orthogonality_weight: 0.5 }

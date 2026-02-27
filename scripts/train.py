@@ -1,12 +1,3 @@
-"""
-STRIQ Training Script
-
-Usage:
-    python scripts/train.py --config configs/base_config.yaml \
-        --dataset configs/datasets/us4qa_fetal.yaml \
-        --gpu 0
-"""
-
 import argparse
 import logging
 import os
@@ -73,7 +64,7 @@ def main():
         ],
     )
 
-    # ---- Anchor Selection (Sec. 2.1) ----
+    # ---- Anchor Selection ----
     logger.info("Phase 1: Variance-spectrum anchor selection")
     full_dataset = US4QADataset(
         root=data_cfg["dataset"]["root"],

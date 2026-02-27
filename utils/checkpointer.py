@@ -1,10 +1,3 @@
-"""
-Model checkpointing utilities.
-
-Handles saving, loading, and resuming of STRIQ model states,
-including OKS task vectors and normalisation statistics.
-"""
-
 import logging
 import os
 from typing import Dict, Optional, Tuple
@@ -51,11 +44,6 @@ def load_checkpoint(
     device: str = "cuda",
     strict: bool = True,
 ) -> Tuple[int, dict]:
-    """Load model state from checkpoint.
-
-    Returns:
-        Tuple of (epoch, extra_metadata).
-    """
     state = torch.load(checkpoint_path, map_location=device)
     model.load_state_dict(state["model_state_dict"], strict=strict)
     if optimizer is not None and "optimizer_state_dict" in state:

@@ -14,7 +14,7 @@ class PlaneExpert(nn.Module):
 
     Parameters:
         d: feature dimensionality (backbone output channels).
-        r: low-rank dimension (default 16 per Table 4).
+        r: low-rank dimension (default 16).
     """
 
     def __init__(self, d: int, r: int = 16):
@@ -61,7 +61,7 @@ class OrthogonalKnowledgeSubspace(nn.Module):
         self.d = d
         self.num_planes = num_planes
         self.r = r
-        self.phi = phi            # activation threshold (Sec. 3.1)
+        self.phi = phi            # activation threshold
         self.tau = tau            # general expert activation threshold
 
         # Plane-specific experts {E_c}_{c=1}^{|C|}
@@ -81,7 +81,7 @@ class OrthogonalKnowledgeSubspace(nn.Module):
         self._union_mask: Optional[Dict[str, torch.Tensor]] = None
 
     # ------------------------------------------------------------------
-    # Task vector & conflict mask utilities (Eq. 4)
+    # Task vector & conflict mask utilities
     # ------------------------------------------------------------------
 
     def snapshot_pre_weights(self, plane_id: int) -> None:
@@ -124,7 +124,7 @@ class OrthogonalKnowledgeSubspace(nn.Module):
         self._union_mask = union
 
     # ------------------------------------------------------------------
-    # Orthogonal gradient projection for shared expert (Sec. 2.3)
+    # Orthogonal gradient projection for shared expert
     # ------------------------------------------------------------------
 
     def build_prior_knowledge_space(self, exclude_plane: int) -> torch.Tensor:
@@ -149,7 +149,7 @@ class OrthogonalKnowledgeSubspace(nn.Module):
     ) -> torch.Tensor:
         """Project gradient onto orthogonal complement of K.
 
-        g_orth = g - K^T K g   (Sec. 2.3)
+        g_orth = g - K^T K g
         """
         proj = K.t() @ (K @ grad.unsqueeze(-1))  # [r*d, 1]
         return grad - proj.squeeze(-1)
@@ -187,7 +187,7 @@ class OrthogonalKnowledgeSubspace(nn.Module):
             param.data -= lr * blended
 
     # ------------------------------------------------------------------
-    # Adaptive subspace selection (inference, Sec. 2.3)
+    # Adaptive subspace selection
     # ------------------------------------------------------------------
 
     def select_bases(
