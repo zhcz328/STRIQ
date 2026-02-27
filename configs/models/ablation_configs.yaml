@@ -1,0 +1,53 @@
+# ===========================================================================
+# Ablation configurations — each entry corresponds to a row in Table 2.
+# ===========================================================================
+
+ablations:
+  # ---- Module ablations (Table 2, left) -----------------------------------
+  - name: wo_oks_module
+    description: "Remove entire OKS module (shared backbone conflates planes)"
+    oks:
+      enabled: false
+
+  - name: wo_orthogonality
+    description: "Remove L_orth penalty; OKS experts exist but are not orthogonalised"
+    oks:
+      rank: 16
+      orthogonality_weight: 0.0
+
+  - name: wo_adaptive_routing
+    description: "Disable activation-threshold-based subspace selection"
+    oks:
+      rank: 16
+      activation_threshold: 0.0
+      use_topk: false
+
+  - name: wo_hierarchical_lra
+    description: "Collapse to single-stage alignment (no cascaded affine)"
+    lra:
+      num_levels: 1
+
+  # ---- Loss function ablations (Table 2, right) ---------------------------
+  - name: loss_all
+    loss: { w_sim: 1.0, w_ncc: 1.0, w_smooth: 1.0 }
+    oks: { orthogonality_weight: 0.5 }
+
+  - name: loss_wo_orth
+    loss: { w_sim: 1.0, w_ncc: 1.0, w_smooth: 1.0 }
+    oks: { orthogonality_weight: 0.0 }
+
+  - name: loss_wo_ncc
+    loss: { w_sim: 1.0, w_ncc: 0.0, w_smooth: 1.0 }
+    oks: { orthogonality_weight: 0.5 }
+
+  - name: loss_sim_only
+    loss: { w_sim: 1.0, w_ncc: 0.0, w_smooth: 0.0 }
+    oks: { orthogonality_weight: 0.0 }
+
+  - name: loss_wo_smooth
+    loss: { w_sim: 1.0, w_ncc: 1.0, w_smooth: 0.0 }
+    oks: { orthogonality_weight: 0.5 }
+
+  - name: loss_wo_sim
+    loss: { w_sim: 0.0, w_ncc: 1.0, w_smooth: 1.0 }
+    oks: { orthogonality_weight: 0.5 }

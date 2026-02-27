@@ -1,0 +1,29 @@
+# ===========================================================================
+# Model configuration: STRIQ with ResNet-18 backbone
+# ---------------------------------------------------------------------------
+# Default hyperparameters correspond to the full model (Table 2, left).
+# ===========================================================================
+
+model:
+  name: striq_resnet18
+  backbone:
+    arch: resnet18
+    pretrained: true
+    frozen: true
+
+  lra:
+    num_levels: 3
+    transform_mode: affine
+    loc_hidden_dim: 256
+
+  oks:
+    rank: 16
+    activation_threshold: 0.1
+    scale_factor: 1.0
+    orthogonality_weight: 0.5
+    task_vector_quantile_fraction: true   # |C|-1 / |C| quantile (Eq.4)
+
+  loss:
+    w_sim: 1.0
+    w_ncc: 1.0
+    w_smooth: 1.0

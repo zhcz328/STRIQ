@@ -1,0 +1,37 @@
+# ===========================================================================
+# Dataset configuration: CAMUS — Cardiac Ultrasound (Public)
+# ---------------------------------------------------------------------------
+# Apical 2-chamber (A2C) and 4-chamber (A4C) views.
+# Ordinal quality grades (Good / Medium / Poor) treated as ranked sequence.
+# ===========================================================================
+
+dataset:
+  name: camus
+  root: ./data/CAMUS
+  modality: cardiac_ultrasound
+
+  planes:
+    - name: A2C
+      id: 0
+    - name: A4C
+      id: 1
+
+  splits:
+    train_ratio: 0.9
+    test_ratio: 0.1
+    num_folds: 5
+
+  scoring:
+    type: ordinal
+    grades:
+      - Good
+      - Medium
+      - Poor
+    # Mapped to numeric ranks for SRCC / PLCC computation
+    grade_mapping:
+      Good: 1.0
+      Medium: 0.5
+      Poor: 0.0
+
+  # Joint training with US4QA to verify cross-anatomy robustness (Sec. 3.2)
+  joint_training: true

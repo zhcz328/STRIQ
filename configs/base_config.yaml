@@ -1,0 +1,67 @@
+# ===========================================================================
+# STRIQ: Subspace-Guided Semantic and Topological Invariant Registration
+#         for Annotation-Free Ultrasound Plane Quality Control
+# ---------------------------------------------------------------------------
+# Base configuration — hyperparameters follow the default experimental
+# protocol described in Sec. 3.1 and Supplementary Table 4.
+# ===========================================================================
+
+seed: 42
+
+# ---- Backbone (frozen ImageNet-pretrained ResNet-18) ----------------------
+backbone:
+  arch: resnet18
+  pretrained: true
+  frozen: true            # weights frozen during training (Sec. 3.1)
+  out_channels: [64, 128, 256, 512]
+
+# ---- Latent Registration Aligner (LRA) ------------------------------------
+lra:
+  num_levels: 3           # cascaded residual blocks {R_i}^3_{i=1} (Sec. 2.2)
+  transform_mode: affine  # SE(2) affine (Eq.1); see Suppl. Table 3 for modes
+
+# ---- Orthogonal Knowledge Subspace (OKS) ----------------------------------
+oks:
+  rank: 16                # low-rank dimension r (Table 4 peak)
+  activation_threshold: 0.1   # phi = tau = 0.1 (Sec. 3.1)
+  scale_factor: 1.0       # alpha modulating update magnitude (Eq.5)
+  orthogonality_weight: 0.5   # lambda controlling L_orth trade-off (Sec. 3.1)
+
+# ---- Variance-Spectrum Anchor Selection -----------------------------------
+anchor:
+  k1: 20                  # reference anchors per plane (Table 4 optimal)
+  encoder: samus          # pre-trained F_pre encoder identifier
+
+# ---- Training -------------------------------------------------------------
+training:
+  optimizer: adam
+  lr: 1.0e-4
+  epochs: 500
+  batch_size: 64
+  weight_decay: 0.0
+  num_folds: 5            # 5-fold cross-validation on D_B
+
+# ---- Loss weights (uniform as stated in Sec. 3.1) -------------------------
+loss:
+  w_sim: 1.0
+  w_ncc: 1.0
+  w_smooth: 1.0
+
+# ---- Quality Score Inference (Eq.6) ---------------------------------------
+inference:
+  acceptance_threshold: 0.5   # tau (Suppl. A.1, F1-optimal)
+
+# ---- Data augmentation (Sec. 3.1) ----------------------------------------
+augmentation:
+  contrast: true
+  rotation_range: 20       # degrees ±20
+  translation_range: 0.2   # fraction ±20%
+  scale_range: [0.8, 1.2]
+  gaussian_noise: true
+
+# ---- System ---------------------------------------------------------------
+system:
+  device: cuda
+  num_workers: 8
+  pin_memory: true
+  img_size: 256

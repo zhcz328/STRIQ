@@ -1,0 +1,25 @@
+name: striq
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.9
+  - pytorch=2.1.0
+  - torchvision=0.16.0
+  - torchaudio=2.1.0
+  - pytorch-cuda=12.1
+  - numpy>=1.24
+  - scipy>=1.10
+  - scikit-learn>=1.2
+  - matplotlib>=3.7
+  - pillow>=9.5
+  - pyyaml>=6.0
+  - tqdm>=4.65
+  - pip
+  - pip:
+      - opencv-python>=4.7
+      - einops>=0.6
+      - timm>=0.9
