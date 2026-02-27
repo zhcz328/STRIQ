@@ -1,14 +1,5 @@
 """
-Quality Score Evaluator — Sec. 2.4, Eq. 6
-
-Inference-time quality assessment:
-
-  Q(I_C) = 1 - (1/k_1) Sigma_{j=1}^{k_1} Sigma_{m in M} w_m * phi(L_m(I_C, I_A^{(j)}))
-
-where M = {sim, NCC, smooth} and phi(.) applies min-max normalisation
-over accumulated statistics (computed per-plane over D_B and fixed at
-inference to prevent distribution shift — Suppl. A.1).
-
+Quality Score Evaluator
 An image is clinically acceptable when Q(I_C) > tau (default tau = 0.5).
 """
 

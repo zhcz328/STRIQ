@@ -1,7 +1,7 @@
 # ===========================================================================
 # Model configuration: STRIQ with ResNet-18 backbone
 # ---------------------------------------------------------------------------
-# Default hyperparameters correspond to the full model (Table 2, left).
+# Default hyperparameters correspond to the full model
 # ===========================================================================
 
 model:

@@ -1,16 +1,5 @@
 """
-Variance-Spectrum Reference Anchor Selection — Sec. 2.1
-
-For each anatomical plane c ∈ C, selects k_1 reference images from the
-full corpus by minimising intra-class feature embedding variance:
-
-  D_A^{(c)} = arg min_{A ⊂ X_c, |A|=k_1}  Σ_{x∈A} σ²_{F_pre}(x)
-
-where σ²_{F_pre}(x) quantifies the embedding variance of x within plane c.
-This isolates high-confidence, morphologically consistent anchors that serve
-as device- and operator-invariant reference standards.
-
-The complete reference library is  D_A = ∪_{c∈C} D_A^{(c)}.
+Variance-Spectrum Reference Anchor Selection
 """
 
 import logging

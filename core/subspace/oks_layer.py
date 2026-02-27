@@ -1,14 +1,5 @@
 """
-Orthogonal Knowledge Subspace (OKS) — Sec. 2.3
-
-Decomposes multi-plane representations into mutually orthogonal low-rank
-subspaces {S_p}_{p=1}^P.  Each plane c maintains a dedicated expert
-E_c = B_c A_c with A_c ∈ R^{r×d}, B_c ∈ R^{d×r}.
-
-Key mechanisms:
-  - Inter-plane orthogonality penalty ‖A_c · A_{c'}^T‖_1  (Eq. implicit)
-  - Binary conflict masks via task-vector quantile thresholding (Eq. 4)
-  - Orthogonal gradient projection for shared expert E_g   (Sec. 2.3)
+Orthogonal Knowledge Subspace
 """
 
 from typing import Dict, List, Optional, Tuple
@@ -55,15 +46,7 @@ class PlaneExpert(nn.Module):
 
 class OrthogonalKnowledgeSubspace(nn.Module):
     """Complete OKS module managing plane-specific and general experts.
-
-    Training protocol:
-        1. Each plane c trains its expert E_c while the backbone is frozen.
-        2. After training on plane c, a task vector T_c is recorded.
-        3. A binary conflict mask M_c is derived via quantile thresholding (Eq. 4).
-        4. The general expert E_g is updated with orthogonal gradient projection.
-
-    Inference protocol:
-        Adaptive subspace selection → Synergy Expert assembly (Eq. 5).
+    Adaptive subspace selection → Synergy Expert assembly.
     """
 
     def __init__(
@@ -119,10 +102,7 @@ class OrthogonalKnowledgeSubspace(nn.Module):
         }
 
     def compute_conflict_mask(self, plane_id: int) -> None:
-        """Binary mask via quantile thresholding (Eq. 4).
-
-        M^{Psi}_c[i,j] = 1 if |T^{Psi}_c[i,j]| > quantile(|T^{Psi}_c|, (|C|-1)/|C|)
-        """
+        """Binary mask via quantile thresholding"""
         tv = self._task_vectors[plane_id]
         q_frac = (self.num_planes - 1) / self.num_planes
         mask = {}
@@ -213,10 +193,7 @@ class OrthogonalKnowledgeSubspace(nn.Module):
     def select_bases(
         self, x: torch.Tensor, expert: PlaneExpert, threshold: float
     ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """Retain basis vectors whose activation exceeds threshold φ.
-
-        Further restricts to top-κ most activated bases where
-        κ = min(|U_c|, ⌊r / |C|⌋).
+        """Retain basis vectors whose activation exceeds threshold.
         """
         z = expert.activation(x)                    # [B, r]
         z_mean = z.abs().mean(dim=0)                # [r]
@@ -242,11 +219,7 @@ class OrthogonalKnowledgeSubspace(nn.Module):
         x: torch.Tensor,
         W0_output: torch.Tensor,
     ) -> torch.Tensor:
-        """Synergy Expert inference (Eq. 5).
-
-        Assembles plane-specific and general subspace bases, then computes
-        \\hat{f} = W_0 x + (alpha / r) B_E A_E x.
-
+        """Synergy Expert inference.
         Args:
             x:         [B, d] input features.
             W0_output: [B, d] frozen backbone output W_0 x.

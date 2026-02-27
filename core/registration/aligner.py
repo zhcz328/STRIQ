@@ -1,12 +1,5 @@
 """
-Latent Registration Aligner (LRA) — Sec. 2.2
-
-Performs cascaded affine transformations in a hierarchical feature space.
-At each resolution level l ∈ {1,2,3} a localisation network L^(l)_loc
-predicts an affine matrix θ_l ∈ SE(2) from concatenated source features
-of both branches (Eq. 1).  Progressive alignment resolves multi-scale
-quality degradation ranging from global probe misalignments to local
-tissue distortions.
+Latent Registration Aligner (LRA).
 """
 
 from typing import List, Tuple
@@ -55,15 +48,6 @@ class LocalisationNetwork(nn.Module):
 
 class LatentRegistrationAligner(nn.Module):
     """Cascaded multi-level latent-space affine alignment.
-
-    For each hierarchical feature level l the module:
-      1. Concatenates source features [f^{A,s}_l, f^{B,s}_l].
-      2. Predicts θ_l via the localisation network (Eq. 1).
-      3. Warps source features through bilinear grid sampling:
-         f^{*,t}_l = G(f^{*}_l, θ_l).
-      4. Propagates the warped output as source for the next level:
-         f^{*,s}_{l+1} = f^{*,t}_l   (cascaded conditioning).
-
     The displacement fields {θ_l} are collected for the smoothness
     regulariser L_smooth.
     """

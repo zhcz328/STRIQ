@@ -1,14 +1,5 @@
 """
-STRIQ Training Engine — Sec. 2.4, Sec. 3.1
-
-Implements the two-phase training protocol:
-  Phase 1: Sequential plane-specific expert training with task-vector
-            recording and conflict mask computation.
-  Phase 2: General expert fine-tuning with orthogonal gradient projection
-            to suppress negative knowledge transfer.
-
-Optimiser: Adam (lr=1e-4, 500 epochs, batch_size=64).
-Total loss: L_total = L_reg + λ L_orth  (Sec. 2.4).
+STRIQ Training Engine
 """
 
 import logging

@@ -1,15 +1,5 @@
 """
-Synergy Expert Assembly — Sec. 2.3, Eq. 5
-
-During inference, relevant bases are extracted from each plane-specific
-expert and the general expert via activation thresholding.  Selected
-sub-matrices are concatenated to form the composite Synergy Expert:
-
-  A_E = [A_{V_1}^T, ..., A_{V_{|C|}}^T, (A^g_W)^T]^T
-  B_E = [B_{V_1}, ..., B_{V_{|C|}}, B^g_W]
-
-This module provides a standalone callable that wraps the OKS layer's
-forward pass for clarity in the builder.
+Synergy Expert Assembly
 """
 
 from typing import Optional

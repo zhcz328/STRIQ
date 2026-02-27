@@ -1,14 +1,5 @@
 """
-Registration Consistency Losses — Sec. 2.2
-
-Three complementary objectives enforce semantic, structural, and
-topological fidelity in the latent registration space:
-
-  L_sim    — cosine similarity on ℓ₂-normalised features (Eq. 2)
-  L_NCC    — normalised cross-correlation invariant to affine
-             intensity transformations (Eq. 3)
-  L_smooth — squared Frobenius norm of the displacement Jacobian
-             ensuring W^{1,2}(Ω) regularity (Sec. 2.2)
+Registration Consistency Losses
 """
 
 from typing import List
@@ -19,7 +10,7 @@ import torch.nn.functional as F
 
 
 class SemanticAlignmentLoss(nn.Module):
-    """L_sim: cosine similarity on unit-hypersphere S^{d-1} (Eq. 2).
+    """L_sim: cosine similarity on unit-hypersphere S^{d-1}.
 
     Maximises the mean pixel-wise cosine similarity between ℓ₂-normalised
     aligned features across all hierarchical levels.
@@ -42,7 +33,7 @@ class SemanticAlignmentLoss(nn.Module):
 
 
 class NormalizedCrossCorrelationLoss(nn.Module):
-    """L_NCC: normalised cross-correlation in feature space (Eq. 3).
+    """L_NCC: normalised cross-correlation in feature space.
 
     Inherently invariant to affine intensity transformations prevalent
     in clinical ultrasound acquisitions.
@@ -115,10 +106,8 @@ class SmoothnessRegularizer(nn.Module):
 
 
 class RegistrationLoss(nn.Module):
-    """Combined registration objective L_reg = L_sim + L_NCC + L_smooth.
-
-    Supports configurable per-term weights for ablation experiments
-    (Table 2, right).
+    """Combined registration objective.
+    Supports configurable per-term weights for ablation experiments.
     """
 
     def __init__(

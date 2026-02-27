@@ -1,15 +1,5 @@
 """
-SAMUS-compatible ViT-B Image Encoder.
-
-Implements the Vision Transformer branch of SAMUS with position adapter
-and feature adapter layers, operating at 256×256 input resolution with
-patch size 16 (producing 16×16 = 256 tokens).
-
-Architecture follows Lin et al. (arXiv:2309.06824):
-  - ViT encoder with 12 transformer blocks (ViT-B configuration)
-  - Position adapter: max-pool + 3×3 conv on positional embeddings
-  - Feature adapter: down-linear → ReLU → up-linear per transformer block
-  - Output neck: 1×1 conv projecting to out_chans (256) dimensions
+SAMUS ViT-B Image Encoder.
 """
 
 import math
@@ -122,7 +112,7 @@ class SAMUSImageEncoder(nn.Module):
     """SAMUS ViT-B image encoder (256×256 input, 16×16 output tokens).
 
     Used as F_pre for computing variance-spectrum anchor embeddings
-    in the STRIQ anchor selection pipeline (Sec. 2.1).
+    in the STRIQ anchor selection pipeline.
     """
 
     def __init__(

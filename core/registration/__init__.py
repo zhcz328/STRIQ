@@ -1,4 +1,4 @@
-# Latent Registration Aligner (LRA) — Sec. 2.2
+# Latent Registration Aligner
 from .aligner import LatentRegistrationAligner
 from .transformer import AffineTransformer, SUPPORTED_MODES
 

@@ -1,9 +1,5 @@
 """
-Affine transformation parameterisation for LRA (Supplementary Table 3).
-
-Supports eight SE(2)-compatible transformation modes.  Each mode constructs
-a 2×3 affine matrix from a reduced parameter vector predicted by the
-localisation network.
+Affine transformation parameterisation for LRA.
 """
 
 import math

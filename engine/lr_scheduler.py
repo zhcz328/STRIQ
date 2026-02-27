@@ -1,6 +1,5 @@
 """
 Learning rate scheduling utilities.
-
 Supports cosine annealing with warm-up, step decay, and constant baselines.
 """
 

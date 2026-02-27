@@ -1,7 +1,7 @@
 # ===========================================================================
 # Dataset configuration: US4QA — Fetal Ultrasound Quality Assessment
 # ---------------------------------------------------------------------------
-# 30,757 images across four standard planes (Sec. 3.1).
+# 30,757 images across four standard planes.
 # Ground-truth quality scores averaged from six sonographers on [0,1].
 # ===========================================================================
 

@@ -1,7 +1,4 @@
 #!/bin/bash
-# ===========================================================================
-# Reproduce Table 2: Ablation analysis on US4QA D_C test set
-# ===========================================================================
 set -e
 
 GPU=${1:-0}
@@ -14,7 +11,7 @@ echo "======================================================"
 echo " STRIQ — Comprehensive Ablation Analysis"
 echo "======================================================"
 
-# ---------- Module Ablations (Table 2, left) ----------
+# ---------- Module Ablations ----------
 
 # Full model (baseline)
 echo "[1/6] Full STRIQ model..."
@@ -46,7 +43,7 @@ python scripts/train.py --config ${CONFIG} --dataset ${DATASET} \
     --sam_ckpt ${SAM_CKPT} --gpu ${GPU} \
     --output_dir ${OUTPUT_DIR}/wo_lra
 
-# ---------- Loss Ablations (Table 2, right) ----------
+# ---------- Loss Ablations ----------
 
 LOSS_CONFIGS=(
     "loss_wo_orth:1:1:1:0"

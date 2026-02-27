@@ -1,15 +1,5 @@
 """
 Cache SAMUS Feature Embeddings for Anchor Selection
-
-Pre-computes and caches F_pre embeddings for the entire dataset,
-accelerating subsequent anchor selection and enabling reproducibility.
-
-Usage:
-    python scripts/cache_features.py \
-        --data_root ./data/US4QA \
-        --sam_ckpt ./checkpoints/samus_vit_b.pth \
-        --output ./cache/us4qa_embeddings.npy \
-        --gpu 0
 """
 
 import argparse

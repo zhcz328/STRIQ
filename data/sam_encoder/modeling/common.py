@@ -1,9 +1,3 @@
-"""
-Common building blocks shared across SAM / SAMUS encoder components.
-
-Adapted from the Segment Anything Model (SAM) codebase.
-"""
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

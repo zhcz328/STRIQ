@@ -1,19 +1,3 @@
-"""
-Build pre-trained SAM / SAMUS image encoder F_pre for anchor embedding.
-
-SAMUS adapts SAM-ViT-B (256×256 input) with a parallel CNN branch,
-feature adapter, and position adapter.  We use only the image encoder
-portion for variance-spectrum anchor selection (Sec. 2.1).
-
-Checkpoint:
-  - SAM ViT-B: https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
-  - SAMUS:     https://github.com/xianlin7/SAMUS (pre-trained weights)
-
-Reference:
-  Lin et al., "Beyond Adapting SAM: Towards End-to-End Ultrasound Image
-  Segmentation via Auto Prompting", MICCAI 2024.
-"""
-
 import logging
 from typing import Optional
 

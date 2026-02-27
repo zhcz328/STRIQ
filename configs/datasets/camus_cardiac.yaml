@@ -1,5 +1,5 @@
 # ===========================================================================
-# Dataset configuration: CAMUS — Cardiac Ultrasound (Public)
+# Dataset configuration: CAMUS
 # ---------------------------------------------------------------------------
 # Apical 2-chamber (A2C) and 4-chamber (A4C) views.
 # Ordinal quality grades (Good / Medium / Poor) treated as ranked sequence.

@@ -1,12 +1,5 @@
 """
 Data augmentation pipeline and DataLoader construction.
-
-Augmentation protocol (Sec. 3.1):
-  - Contrast adjustment
-  - Rotation: ±20°
-  - Translation: ±20%
-  - Scaling: 0.8–1.2×
-  - Gaussian noise injection
 """
 
 from typing import Optional
