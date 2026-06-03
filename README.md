@@ -6,6 +6,10 @@ Reliable quality control (QC) of ultrasound images is essential for both real-ti
 
 ![STRIQ Framework](./figs/STRIQ.png)
 
+🎉 Accepted to MICCAI 2026. This repository provides the official PyTorch implementation of Subspace-Guided Semantic and Topological Invariant Registration for Annotation-Free Ultrasound Plane Quality Control.
+
+If you find this repository useful, please consider giving it a ⭐!
+
 ## 🔨 PostScript
 
 😄 This project is the PyTorch implementation of STRIQ.
